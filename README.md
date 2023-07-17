@@ -21,6 +21,8 @@ Please note that the app is currently in development, and additional features an
 - Connect a physical device or start an emulator/simulator.
 - Run `flutter run` to launch the app on your device or simulator.
 
+- Apk file will be added in the future
+
 ## Contributing
 
 Contributions to this project are welcome. If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Your contributions will help enhance the app and make it more useful for others.
