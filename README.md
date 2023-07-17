@@ -23,14 +23,6 @@ Please note that the app is currently in development, and additional features an
 
 - Apk file will be added in the future
 
-## Contributing
-
-Contributions to this project are welcome. If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Your contributions will help enhance the app and make it more useful for others.
-
-## License
-
-This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
-
 ## Screenshots (optional)
 
 You can optionally include screenshots of your app in action to showcase its interface and features.
