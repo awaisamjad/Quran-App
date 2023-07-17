@@ -23,6 +23,6 @@ Please note that the app is currently in development, and additional features an
 
 - Apk file will be added in the future
 
-## Screenshots (optional)
+## Screenshots 
 
-You can optionally include screenshots of your app in action to showcase its interface and features.
+Will be shown in the future
