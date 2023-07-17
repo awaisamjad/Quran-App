@@ -1,16 +1,34 @@
-# flutter_application_1
+# Quran App
 
-A new Flutter project.
+This is a Quran app that provides various features related to the Quran, recitation, Hadith, Dhikr, and Duas. The app is a work in progress and currently offers the following features:
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Quran Page: Explore the Quran organized by Surahs, Juz, Pages, and Hizb. Browse through the verses and access detailed information about each Surah. (Work in progress)
+- Recitation Page: Record your own recitation of the Quran and listen to it within the app. Fine-tune your recitation skills and improve your pronunciation. (Work in progress)
+- Hadith Page: Discover a collection of authentic Hadiths and learn from the teachings of the Prophet Muhammad (peace be upon him). (Work in progress)
+- Dhikr and Dua Page: Access a range of supplications and remembrances (Dhikr) along with specific Duas for various occasions. (Work in progress)
+- Settings Page: Customize the app according to your preferences. Adjust settings related to translations, recitation styles, theme, and more. (Work in progress)
 
-A few resources to get you started if this is your first Flutter project:
+Please note that the app is currently in development, and additional features and improvements will be added in future updates.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Clone this repository to your local machine.
+- Open the project in your preferred IDE or text editor.
+- Ensure you have Flutter and Dart SDK installed on your system.
+- Run `flutter pub get` to install the required dependencies.
+- Connect a physical device or start an emulator/simulator.
+- Run `flutter run` to launch the app on your device or simulator.
+
+## Contributing
+
+Contributions to this project are welcome. If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request. Your contributions will help enhance the app and make it more useful for others.
+
+## License
+
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as per the terms of the license.
+
+## Screenshots (optional)
+
+You can optionally include screenshots of your app in action to showcase its interface and features.
