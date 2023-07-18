@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quran/quran.dart' as quran;
-import 'package:quran/surah_data.dart';
 
 final Color appBarBackgroundColour = Color.fromARGB(255, 130, 186, 130);
 
@@ -176,6 +175,8 @@ class JuzPage extends StatelessWidget {
             final juzNumber = index + 1;
             final surahAndVerses = quran.getSurahAndVersesFromJuz(juzNumber);
             final surahNumber = surahAndVerses.keys.first;
+            final surahNameEnglish = quran.getSurahNameEnglish(surahNumber);
+            final surahNameArabic = quran.getSurahNameArabic(surahNumber);
             final verseStart = surahAndVerses[surahNumber]![0];
             final verseEnd = surahAndVerses[surahNumber]![1];
 
@@ -193,7 +194,11 @@ class JuzPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => JuzDetailsPage(
+                        surahNumber: surahNumber.toString(),
                         surahAndVerses: surahAndVerses,
+                        surahNameArabic: surahNameArabic,
+                        surahNameEnglish: surahNameEnglish,
+
                       ),
                     ),
                   );
@@ -215,8 +220,15 @@ class JuzPage extends StatelessWidget {
 
 class JuzDetailsPage extends StatelessWidget {
   final Map<int, List<int>> surahAndVerses;
-
-  JuzDetailsPage({required this.surahAndVerses});
+  final String surahNameEnglish;
+  final String surahNameArabic;
+  final String surahNumber;
+  JuzDetailsPage({
+    required this.surahAndVerses,
+    required this.surahNameEnglish,
+    required this.surahNameArabic,
+    required this.surahNumber,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -239,20 +251,26 @@ class JuzDetailsPage extends StatelessWidget {
                 children: [
                   ListTile(
                     title: Text(
-                      'Surah $surahNumber',
+                      'Surah $surahNumber $surahNameEnglish $surahNameArabic ',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                   ListView.builder(
                     shrinkWrap: true,
-                    //physics: NeverScrollableScrollPhysics(),
+                    physics: NeverScrollableScrollPhysics(),
                     itemCount: verseEnd - verseStart + 1,
                     itemBuilder: (context, index) {
                       final verseNumber = verseStart + index;
                       return ListTile(
                         title: Text(
-                          quran.getVerse(surahNumber, verseNumber),
+                          quran.getVerse(
+                            surahNumber,
+                            verseNumber,
+                            verseEndSymbol: true,
+                          ),
+                          style: TextStyle(
+                              color: Colors.black, fontSize: 34, height: 1.5),
                           textAlign: TextAlign.right,
                         ),
                       );

@@ -8,6 +8,7 @@ import 'test_page.dart';
 
 void main() {
   runApp(MyApp());
+
 }
 
 class MyApp extends StatefulWidget {
@@ -24,6 +25,8 @@ class _MyAppState extends State<MyApp> {
     DhikrDuaPage(),
     SettingsPage(),
     //TestPage(),
+    
+
   ];
 
   void _onItemTapped(int index) {
@@ -42,8 +45,7 @@ class _MyAppState extends State<MyApp> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
-          selectedItemColor: const Color.fromARGB(255, 94, 7, 255),
-          //selectedLabelStyle: TextStyle(color: Colors.amber), // Customize selected label color
+          selectedItemColor: Color.fromARGB(255, 45, 131, 74),
           unselectedLabelStyle: TextStyle(color: Colors.grey),
           onTap: _onItemTapped,
           items: [
@@ -64,16 +66,8 @@ class _MyAppState extends State<MyApp> {
               label: 'Recitations',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/images/settings.png',
+              icon: Image.asset('assets/images/hadith.png',
                   width: 38, height: 38),
-              label: 'Settings',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/images/settings.png',
-                width: 38,
-                height: 38,
-              ),
               label: 'Hadith',
             ),
             BottomNavigationBarItem(
@@ -83,6 +77,14 @@ class _MyAppState extends State<MyApp> {
                 height: 38,
               ),
               label: 'Dhikr & Dua',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                'assets/images/settings.png',
+                width: 38,
+                height: 38,
+              ),
+              label: 'Settings',
             ),
           ],
         ),
