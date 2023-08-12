@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "82565754609",
+    "project_id": "quran-app-aa669",
+    "storage_bucket": "quran-app-aa669.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82565754609:android:02eb9f56d9aef924c94350",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82565754609-7bucusbbna8lopburkg7e6d6q4ffa618.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwc88E057Vr3daJL4I-B-ufsHkYJ-uFks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82565754609-7bucusbbna8lopburkg7e6d6q4ffa618.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "82565754609-35ujmuvjqjn57nrt3uol1p935dgqnkda.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplication1.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

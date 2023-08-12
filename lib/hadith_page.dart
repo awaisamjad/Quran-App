@@ -17,7 +17,7 @@ class HadithPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 108, 155, 123),
       appBar: AppBar(
-        title: Text('Quran'),
+        title: Text('Hadith'),
         backgroundColor: appBarBackgroundColour,
       ),
       body: Row(
@@ -54,7 +54,16 @@ class HadithPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(borderRadius: buttonRadius)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HadithPageDetails(
+
+                      ),
+                    ),
+                  );
+                  },
                   child: Text('Muslim'),
                 ),
                 spacingBtwnBoxes,
@@ -65,7 +74,16 @@ class HadithPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(borderRadius: buttonRadius)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HadithPageDetails(
+
+                      ),
+                    ),
+                  );
+                  },
                   child: Text('Abu Dawud'),
                 ),
                 spacingBtwnBoxes,
@@ -85,7 +103,16 @@ class HadithPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(borderRadius: buttonRadius)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HadithPageDetails(
+
+                      ),
+                    ),
+                  );
+                  },
                   child: Text('Tirmidhi'),
                 ),
                 spacingBtwnBoxes,
@@ -96,7 +123,16 @@ class HadithPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(borderRadius: buttonRadius)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HadithPageDetails(
+
+                      ),
+                    ),
+                  );
+                  },
                   child: Text('Nasai'),
                 ),
                 spacingBtwnBoxes,
@@ -107,7 +143,16 @@ class HadithPage extends StatelessWidget {
                     shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(borderRadius: buttonRadius)),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HadithPageDetails(
+
+                      ),
+                    ),
+                  );
+                  },
                   child: Text('Ibn Majah'),
                 ),
                 spacingBtwnBoxes,
