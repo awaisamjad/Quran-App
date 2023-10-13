@@ -25,4 +25,23 @@ Please note that the app is currently in development, and additional features an
 
 ## Screenshots 
 
-Will be shown in the future
+### Quran/Surah Page
+![Surah Page](screenshots\surah_page.jpg)
+
+### Quran/Juz Page
+![Juz Page](screenshots\juz_page.jpg)
+
+### Quran/Hadith Page
+![Hadith Page](screenshots\hadith_page.jpg)
+
+### Quran/Bukhari Page
+![Bukhari Page](screenshots\bukhari_page.jpg)
+
+### Quran/Revelation Book - Bukhari 
+![Revelation Book - Bukhari](screenshots\revelation_book_bukhari_page.jpg)
+
+### Quran/Sign Up Page
+![Sign Up Page](screenshots\sign_up_page.jpg)
+
+### Quran/Log In Page
+![Sign In Page](screenshots\log_in_page.jpg)
