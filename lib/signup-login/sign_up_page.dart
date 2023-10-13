@@ -11,6 +11,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:Quran/signup-login/log_in_page.dart';
 import 'package:profanity_filter/profanity_filter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:facebook_auth/facebook_auth.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage();
@@ -24,32 +27,35 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailTextController = TextEditingController();
   final TextEditingController _passwordTextController = TextEditingController();
   final TextEditingController _usernameTextController = TextEditingController();
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
   //~ Function to check if user name is valid
-  bool isUsernameValid(String username) {
-    //? Ensures all lowercase, at least one number, more than 8 characters long, and no spaces
-    RegExp pattern = RegExp(r'^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$');
-    return pattern.hasMatch(username);
-  }
+  // Function to check if the username is valid
+bool isUsernameValid(String username) {
+  // Ensures all lowercase, at least one number, more than 8 characters long, and allows underscores
+  RegExp pattern = RegExp(r'^(?=.*[a-z])(?=.*\d)[a-z\d_]{8,}$');
+  return pattern.hasMatch(username);
+}
 
-  //~ Function to check if email is clean (no profanity)
-  bool isUsernameClean(String username) {
-    final filter = ProfanityFilter();
-    return !filter.hasProfanity(username);
-  }
+//~ Function to check if the username is clean (no profanity)
+bool isUsernameClean(String username) {
+  final filter = ProfanityFilter();
+  return !filter.hasProfanity(username);
+}
 
-  //~ Function to check if username already exists
-  //! needs work
-  Future<bool> doesUsernameExist(String username) async {
-    final QuerySnapshot<Map<String, dynamic>> querySnapshot =
-        await FirebaseFirestore.instance
-            .collection('usernames')
-            .where('username', isEqualTo: username)
-            .get();
+//~ Function to check if the username already exists#
+//! needs work
+Future<bool> doesUsernameExist(String username) async {
+  final QuerySnapshot<Map<String, dynamic>> querySnapshot =
+      await FirebaseFirestore.instance
+          .collection('users') // Change this to your actual collection name
+          .where('username', isEqualTo: username)
+          .get();
 
-    return querySnapshot.docs.isNotEmpty;
-  }
+  return querySnapshot.docs.isNotEmpty;
+}
 
+  //~ Function to check if email already exists
   Future<bool> doesEmailExist(String email) async {
     List<String> signInMethods =
         await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);

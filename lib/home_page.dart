@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'quran_page/quran_page.dart';
-import 'dhikr_dua_page.dart';
-import 'hadith_page.dart';
+import 'quran&hadith/quran_page/quran_page.dart';
+import 'dhikr_dua/dhikr_dua_page.dart';
+import 'prayer_page/prayer_page.dart';
 import 'recitation_page.dart';
 import 'settings_page/settings_page.dart';
 import 'signup-login/log_in_page.dart';
@@ -18,8 +18,8 @@ class _HomePageState extends State<HomePage> {
 
   static List<Widget> _pages = <Widget>[
     QuranPage(),
+    PrayerPage(),
     RecitationPage(),
-    HadithPage(),
     DhikrDuaPage(),
     SettingsPage(),
     // TestPage(),
@@ -34,61 +34,72 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
-      bottomNavigationBar: Theme(
-        data: ThemeData(
-          canvasColor: Color.fromARGB(255, 80, 155, 102),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _pages,
         ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.black, // Change to black
-          unselectedLabelStyle:
-              TextStyle(color: Colors.grey), // Unselected text color
-          onTap: _onItemTapped,
-          items: [
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/images/quran-icon-png-1.png',
-                width: 48,
-                height: 48,
-              ),
-              label: 'Quran',
+        bottomNavigationBar: SizedBox(
+          height: 70,
+          child: Theme(
+            data: ThemeData(
+              canvasColor: Color.fromARGB(255, 104, 182, 127),
             ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/images/recitation.png',
-                width: 42,
-                height: 42,
-              ),
-              label: 'Recitations',
+            child: BottomNavigationBar(
+              currentIndex: _selectedIndex,
+              selectedItemColor: Colors.black, // Change to black
+              unselectedLabelStyle:
+                  TextStyle(color: Colors.grey), // Unselected text color
+              onTap: _onItemTapped,
+              items: [
+                //~ Quran
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    'assets/images/quran-icon-png-1.png',
+                    width: 38,
+                    height: 38,
+                  ),
+                  label: 'Quran',
+                ),
+
+                //~ Prayer
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/hadith.png',
+                      width: 38, height: 38),
+                  label: 'Prayer',
+                ),
+
+                //~ Recitation
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    'assets/images/recitation.png',
+                    width: 38,
+                    height: 38,
+                  ),
+                  label: 'Recitations',
+                ),
+                
+                //~ Dhikr & Dua
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    'assets/images/settings.png',
+                    width: 38,
+                    height: 38,
+                  ),
+                  label: 'Dhikr & Dua',
+                ),
+
+                //~Settings
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    'assets/images/settings.png',
+                    width: 38,
+                    height: 38,
+                  ),
+                  label: 'Settings',
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Image.asset('assets/images/hadith.png',
-                  width: 38, height: 38),
-              label: 'Hadith',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/images/settings.png',
-                width: 38,
-                height: 38,
-              ),
-              label: 'Dhikr & Dua',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/images/settings.png',
-                width: 38,
-                height: 38,
-              ),
-              label: 'Settings',
-            ),
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }

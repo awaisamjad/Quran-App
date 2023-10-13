@@ -36,6 +36,15 @@ dependencies:
   google_sign_in: ^6.1.4
   profanity_filter: ^2.0.0
   google_fonts: ^4.0.4
+  sign_in_with_apple: ^5.0.0
+  facebook_auth: ^0.0.3
+  adhan_dart: ^1.0.8
+  flutter_qiblah: ^2.2.0
+  permission_handler: ^10.4.3
+  timezone: ^0.9.2
+  theme_provider: ^0.6.0
+  url_launcher: ^6.1.12
+  provider: ^6.0.5
   # firebase_remote_config: ^4.2.4
 
 dev_dependencies:
@@ -60,6 +69,14 @@ flutter:
     - family: KFGQPC Uthmanic Script HAFS Regular
       fonts:
         - asset: assets\fonts\KFGQPC Uthmanic Script HAFS Regular\KFGQPC Uthmanic Script HAFS Regular.otf
+
+    - family: PDMS Saleem
+      fonts:
+        - asset: assets\fonts\_PDMS_Saleem_QuranFont.ttf
+
+    - family: Al Qalam Quran Majeed
+      fonts:
+        - asset: assets\fonts\Al Qalam Quran Majeed\Al Qalam Quran Majeed.ttf
 
 flutter_launcher_icons:
   image_path_android: "assets/images/app_image.png"

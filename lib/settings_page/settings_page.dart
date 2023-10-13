@@ -7,9 +7,6 @@ import 'package:Quran/settings_page/general_settings_page.dart';
 import 'package:Quran/settings_page/help_support_page.dart';
 import 'package:Quran/settings_page/notifications_page.dart';
 import 'package:Quran/settings_page/privacy_security_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-import '../signup-login/log_in_page.dart';
 
 double buttonSpace = 20;
 
@@ -110,21 +107,6 @@ class SettingsPage extends StatelessWidget {
                   );
                 },
                 buttonText: "About",
-              ),
-              SizedBox(height: buttonSpace),
-              //~ Sign Out Button
-              ElevatedButton(
-                onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.pushReplacement(
-                    // Use pushReplacement to clear the navigation stack
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            LogInPage()), // Navigate to the sign-in page
-                  );
-                },
-                child: Text("Sign Out"),
               ),
             ],
           ),

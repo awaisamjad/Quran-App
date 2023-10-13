@@ -7,6 +7,8 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'dart:io';
 import 'package:camera/camera.dart';
 
+import 'custom_navigation_drawer.dart';
+
 final appBarBackgroundColour = Color.fromARGB(255, 130, 186, 130);
 
 class RecitationPage extends StatefulWidget {
@@ -166,69 +168,81 @@ class RecitationPageState extends State<RecitationPage> {
   bool _isAudioOnlyMode = true;
 
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: Text("Recitations"),
-      backgroundColor: appBarBackgroundColour,
-    ),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: !_isAudioOnlyMode
-                ? _videoIsLoading
-                    ? Container(
-                        width: 300,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2.0),
-                        ),
-                        child: const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                    : CameraPreview(_cameraController)
-                : SizedBox(), // If audio only mode, make it take no space
-          ),
-          SizedBox(height: 25),
-          if (audioIsRecording) Text('Recording in Progress'),
-          ElevatedButton(
-            onPressed: audioIsRecording ? audioStopRecording : audioStartRecording,
-            child: audioIsRecording
-                ? const Text('Stop Recording')
-                : const Text('Start Recording'),
-          ),
-          SizedBox(height: 25),
-          if (!audioIsRecording && !_isAudioOnlyMode)
-            ElevatedButton(
-              onPressed: audioPlayRecording,
-              child: Text('Play Recording'),
-            ),
-          ToggleButtons(
-            isSelected: [_isAudioOnlyMode, !_isAudioOnlyMode],
-            onPressed: (index) {
-              setState(() {
-                _isAudioOnlyMode = index == 0;
-              });
-            },
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text('Audio Only'),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text('Video with Audio'),
-              ),
-            ],
-          ),
-        ],
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Recitations"),
+        backgroundColor: appBarBackgroundColour,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
       ),
-    ),
-  );
-}
+      drawer: CustomNavigationDrawer(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: !_isAudioOnlyMode
+                  ? _videoIsLoading
+                      ? Container(
+                          width: 300,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 2.0),
+                          ),
+                          child: const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        )
+                      : CameraPreview(_cameraController)
+                  : SizedBox(), // If audio only mode, make it take no space
+            ),
+            SizedBox(height: 25),
+            if (audioIsRecording) Text('Recording in Progress'),
+            ElevatedButton(
+              onPressed:
+                  audioIsRecording ? audioStopRecording : audioStartRecording,
+              child: audioIsRecording
+                  ? const Text('Stop Recording')
+                  : const Text('Start Recording'),
+            ),
+            SizedBox(height: 25),
+            if (!audioIsRecording && !_isAudioOnlyMode)
+              ElevatedButton(
+                onPressed: audioPlayRecording,
+                child: Text('Play Recording'),
+              ),
+            ToggleButtons(
+              isSelected: [_isAudioOnlyMode, !_isAudioOnlyMode],
+              onPressed: (index) {
+                setState(() {
+                  _isAudioOnlyMode = index == 0;
+                });
+              },
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text('Audio Only'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text('Video with Audio'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 class Recitation {
